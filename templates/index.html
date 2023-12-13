@@ -1,37 +1,21 @@
+<!-- index.html.j2 -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        p {
-            color: #666;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>{{ title }}</title>
 </head>
 <body>
-    <header>
-        <h1>Bienvenido a Mi Página Web</h1>
-    </header>
-    <img src = "https://drive.google.com/file/d/187ldx6tvCGMVgSOLbLn2RbS2MD9PWe39/view?usp=sharing">
-    <br>
-    <main>
-        <p>Esta es una página web simple. ¡Personalízala según tus necesidades!</p>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Mi Página Web</p>
-    </footer>
+   <h1>Bienvenido</h1>
+   {% if usuario is none %}
+     <form method="POST" action="/login">
+       Usuario: <input type="text" name="username"><br/>
+       Contrase&ntilde;a: <input type="password" name="password"><br/>
+       <input type="submit" value="Enviar"><br/>
+     </form>
+   {% else %}
+     <p>Authenticated with {{ usuario }} <a href="/logout">[Logout]</a> </p>
+   {% endif %}
 </body>
 </html>
