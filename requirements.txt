@@ -1,27 +1,12 @@
-# This file may be used to create an environment using:
-# $ conda create --name <env> --file <this file>
-# platform: win-64
-bzip2==1.0.8
-ca-certificates==2023.08.22
 click==8.1.7
 colorama==0.4.6
-flask==2.2.2
+Flask==2.2.2
 gunicorn==21.2.0
 itsdangerous==2.0.1
-jinja2==3.1.2
-libffi==3.4.4
-markupsafe==2.1.1
-openssl==3.0.12
+Jinja2==3.1.2
+MarkupSafe==2.1.1
 packaging==23.2
 pip==23.3.1
-python==3.11.5
 setuptools==68.0.0
-sqlite==3.41.2
-tk==8.6.12
-tzdata==2023c
-vc==14.2
-vs2015_runtime==14.27.29016
-werkzeug==2.2.3
+Werkzeug==2.2.3
 wheel==0.41.2
-xz==5.4.5
-zlib==1.2.13
