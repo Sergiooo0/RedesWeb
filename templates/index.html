@@ -1,21 +1,81 @@
-<!-- index.html.j2 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask + JavaScript Sign In / Register</title>
 </head>
 <body>
-   <h1>Bienvenido</h1>
-   {% if usuario is none %}
-     <form method="POST" action="/login">
-       Usuario: <input type="text" name="username"><br/>
-       Contrase&ntilde;a: <input type="password" name="password"><br/>
-       <input type="submit" value="Enviar"><br/>
-     </form>
-   {% else %}
-     <p>Authenticated with {{ usuario }} <a href="/logout">[Logout]</a> </p>
-   {% endif %}
+    <header>
+        <h1>Autenticación de Usuarios</h1>
+    </header>
+
+    <main>
+        <form id="signin-form">
+            <label for="username-signin">Usuario:</label>
+            <input type="text" id="username-signin" name="username" required>
+
+            <label for="password-signin">Contraseña:</label>
+            <input type="password" id="password-signin" name="password" required>
+
+            <button type="button" onclick="validarSignIn()">Iniciar Sesión</button>
+        </form>
+
+        <form id="register-form">
+            <label for="username-register">Usuario:</label>
+            <input type="text" id="username-register" name="username" required>
+
+            <label for="password-register">Contraseña:</label>
+            <input type="password" id="password-register" name="password" required>
+
+            <button type="button" onclick="validarRegistro()">Registrarse</button>
+        </form>
+
+        <p id="mensaje"></p>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function validarSignIn() {
+            var username = $('#username-signin').val();
+            var password = $('#password-signin').val();
+
+            validarCredenciales('/signin', username, password);
+        }
+
+        function validarRegistro() {
+            var username = $('#username-register').val();
+            var password = $('#password-register').val();
+
+            validarCredenciales('/register', username, password);
+        }
+
+        function validarCredenciales(url, username, password) {
+            // Validar que al menos hay una mayúscula en la contraseña
+            if (!(/[A-Z]/.test(password))) {
+                mostrarMensaje('La contraseña debe contener al menos una mayúscula');
+                return;
+            }
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {username: username, password: password},
+                success: function(response) {
+                    mostrarMensaje(response.message);
+                    if (response.success) {
+                        // Redirigir o realizar otras acciones después del inicio de sesión o registro exitoso
+                    }
+                },
+                error: function(error) {
+                    console.error('Error en la solicitud AJAX:', error);
+                }
+            });
+        }
+
+        function mostrarMensaje(mensaje) {
+            $('#mensaje').text(mensaje);
+        }
+    </script>
 </body>
 </html>
