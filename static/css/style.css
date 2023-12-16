@@ -1,8 +1,126 @@
 /* static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #1F1C2C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #928DAB, #1F1C2C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #928DAB, #1F1C2C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+}
+
 h1 {
-    border: 2px #eee solid;
-    color: brown;
+    border: 2px #302c2c solid;
+    color: skyblue;
     text-align: center;
     padding: 10px;
 }
+
+p {
+    color: #ffffff;
+}
+
+.link {
+    text-align: right;
+    text-decoration: none;
+    margin-left: 10px; /* Ajusta el margen izquierdo según sea necesario */
+    color: #3498db;
+    float: right;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #f6f5f5;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 20%;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.dark-input {
+    background-color: #333;
+    color: white;
+}
+
+
+.center-image {
+    text-align: center; 
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+/* static/css/calculator.css */
+
+/* Estilos para el contenedor de la calculadora */
+#calculator-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #B2FEFA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0ED2F7, #B2FEFA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0ED2F7, #B2FEFA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el display */
+#display {
+    background-color: #6d7b73;
+    color: #fff;
+    width: 100%;
+    height: 80px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: right;
+    padding: 5px;
+    border: 1px solid #3c3b3b;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #787575;
+    color: #fff;
+    width: 20%;
+    height: 60px; /* Ajusta la altura según tus necesidades */
+    padding: 10px;
+    font-size: 18px;
+    margin: 10px 7px;
+    cursor: pointer;
+    border: 1px solid #3c3b3b;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button.black {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Estilos adicionales para resaltar el botón de igual (=) */
+button.equals {
+    background-color: #2913e9;
+    color: #fff;
+}
+
 
