@@ -7,7 +7,7 @@ app.secret_key = 'super secret key'
 DATABASE = {
     'host': 'mysql-sergiogonzalez.alwaysdata.net',
     'user': '340093_yo',
-    'password': 'Sergio07*',
+    'password': '**********',
     'database': 'sergiogonzalez_yo'
 }
 
